@@ -59,3 +59,6 @@ Route :: get('/category/delete/{id}',[CategoryController::class,'delete'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+use App\Http\Controllers\InvoiceController;
+Route::get('/invoices',[InvoiceController::class,'show']);
