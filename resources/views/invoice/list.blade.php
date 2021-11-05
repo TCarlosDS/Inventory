@@ -2,6 +2,8 @@
 @section('title','Invoices')
 @section('encabezado','Invoices')
 @section('content')
+<a href="{{ route('invoiceNew') }}"class="btn btn-primary">Nueva Factura</a>
+
 <table class="table">
     <thead>
         <tr>
@@ -51,12 +53,17 @@
                         <div class="row">
                             <div class="col-sm-6"></div>
                             <div class="col-sm-3">Subtotal:</div>
-                            <div class="col-sm-3">{{ $invoice->subtotal }}</div>
+                            <div class="col-sm-3">$ {{ number_format($invoice->subtotal,0,",",".") }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-3">IVA:</div>
+                            <div class="col-sm-3">$ {{ number_format($invoice->total-$invoice->subtotal,0,",",".") }}</div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6"></div>
                             <div class="col-sm-3">Total:</div>
-                            <div class="col-sm-3">{{ $invoice->total }}</div>
+                            <div class="col-sm-3">$ {{  number_format($invoice->total,0,",",".") }}</div>
                         </div>
                         </div>
                         <div class="modal-footer">
